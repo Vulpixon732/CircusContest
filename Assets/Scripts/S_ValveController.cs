@@ -3,18 +3,19 @@ using UnityEngine.InputSystem;
 
 public class S_ValveController : MonoBehaviour
 {
-    //private PlayerInput playerInput;
     public Transform valve;
     public GameObject handle;
+    public Transform spawner;
 
     public float rotationSpeed = 30f;
 
     private bool isMouseHeld = false;
+    private Vector3 travelDistance;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-    //    playerInput = new PlayerInput();
+
     }
 
     // Update is called once per frame
@@ -33,33 +34,37 @@ public class S_ValveController : MonoBehaviour
 
     void RotateHandle()
     {
-        //DEBUG
-        Debug.Log("IsCursorOnHandle: " + IsCursorOnHandle().ToString());
-        //
-        valve.transform.Rotate(Vector3.up * rotationSpeed * Time.deltaTime);
+        if (IsCursorOnHandle())
+        {
+            valve.transform.Rotate(Vector3.up * rotationSpeed * Time.deltaTime);
+
+            travelDistance = travelDistance + (Vector3.up * rotationSpeed * Time.deltaTime);
+            //Debug.Log("Travel Distance: " + travelDistance.ToString());
+            if(travelDistance.y >= 360)
+            {
+                //Debug.Log("FULL ROTATION");
+                RotationTrigger();
+            }
+        }      
     }
 
     bool IsCursorOnHandle()
     {
-        //Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        //Ray ray = Camera.main.ScreenPointToRay(Mouse.current.position.ReadValue());
-        Vector3 mousePos = 
-        RaycastHit hit;
-        if (Physics.Raycast(ray, out hit))
+        if(handle != null)
         {
-            GameObject selectedObject = hit.collider.gameObject;
-
-            if (selectedObject != null)
-            {
-                if (selectedObject == handle)
-                {
-                    return true;
-                }
-            }
+            return handle.GetComponent<S_HoverManager>().IsMouseOverElement();
         }
-        return false;
+        else
+        {
+            return false;
+        }
     }
 
+    void RotationTrigger()
+    {
+        travelDistance.y = travelDistance.y - 360;
+        spawner.GetComponent<S_DuckSpawn>().Spawn();
+    }
     void OnUnpossess()
     {
         Debug.Log("DEBUG OnUnpossess ACTION");
