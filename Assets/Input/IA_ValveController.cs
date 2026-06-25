@@ -124,7 +124,7 @@ public partial class @IA_ValveController: IInputActionCollection2, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""d7e63270-93f6-435f-b34e-a9de2d456e89"",
-                    ""path"": ""<Keyboard>/e"",
+                    ""path"": ""<Keyboard>/q"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",

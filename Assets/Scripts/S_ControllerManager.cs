@@ -1,24 +1,28 @@
 using NUnit.Framework;
-using UnityEngine;
 using System.Collections.Generic;
+using UnityEngine;
 using UnityEngine.InputSystem;
+using static UnityEngine.Rendering.DebugUI;
 
 public class S_ControllerManager : MonoBehaviour
 {
     public GameObject mainPlayer;
     public List<GameObject> valveControllers;
 
+    private GameObject currentPossession;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        mainPlayer.GetComponent<PlayerInput>().enabled = true;
-        FindChildWithTag(mainPlayer, "MainCamera").SetActive(true);
-
-
+        //currentPossession = mainPlayer;
+        //mainPlayer.GetComponent<PlayerInput>().enabled = true;
         foreach(GameObject valve in valveControllers)
         {
-            valve.GetComponent<PlayerInput>().enabled = false;
-            FindChildWithTag(valve, "ValveCamera").SetActive(false);
+            UnpossessObject(valve);
+        }
+        if(currentPossession != mainPlayer)
+        {
+            PossessPlayer(true);
         }
     }
 
@@ -42,5 +46,38 @@ public class S_ControllerManager : MonoBehaviour
         }
 
         return child;
+    }
+
+    public void PossessObject(GameObject target)
+    {
+        PossessPlayer(false);
+        target.GetComponent<PlayerInput>().enabled = true;
+        FindChildWithTag(target, "ValveCamera").SetActive(true);
+        currentPossession = target;
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = true;
+    }
+    public void UnpossessObject(GameObject target)
+    {
+        target.GetComponent<PlayerInput>().enabled = false;
+        FindChildWithTag(target, "ValveCamera").SetActive(false);
+        currentPossession = null;
+    }
+
+
+    public void PossessPlayer(bool value)
+    {
+        if (currentPossession != mainPlayer && currentPossession != null && value)
+        {
+            UnpossessObject(currentPossession);
+        }
+        mainPlayer.GetComponent<PlayerInput>().enabled = value;
+        FindChildWithTag(mainPlayer, "MainCamera").SetActive(value);
+        if (value)
+        {
+            Cursor.lockState = CursorLockMode.Locked;
+            Cursor.visible = false;
+            currentPossession = mainPlayer;
+        }
     }
 }

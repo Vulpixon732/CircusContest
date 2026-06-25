@@ -6,6 +6,7 @@ public class InteractableOutline : MonoBehaviour
 {
     Outline outline;
     public string message;
+    [Header("To Possess object, call ControllerManager's S_ControllerManager.PossessObject(this Object)\n")]
     public UnityEvent onInteraction;
 
 

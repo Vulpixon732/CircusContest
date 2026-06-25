@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Events;
 
 public class S_ValveController : MonoBehaviour
 {
@@ -11,6 +12,10 @@ public class S_ValveController : MonoBehaviour
 
     private bool isMouseHeld = false;
     private Vector3 travelDistance;
+
+    [Header("Calls ControllerManager's S_ControllerManager.PossessPlayer(Player Character)\n")]
+    public UnityEvent onUnpossessAction;
+
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -65,9 +70,11 @@ public class S_ValveController : MonoBehaviour
         travelDistance.y = travelDistance.y - 360;
         spawner.GetComponent<S_DuckSpawn>().Spawn();
     }
-    void OnUnpossess()
+    
+    public void OnUnpossess()
     {
         Debug.Log("DEBUG OnUnpossess ACTION");
+        onUnpossessAction.Invoke();
     }
 
     void OnMoveHandle()
@@ -80,4 +87,5 @@ public class S_ValveController : MonoBehaviour
         Debug.Log("DEBUG OnReleaseHandle");
         isMouseHeld = false;
     }
+
 }
