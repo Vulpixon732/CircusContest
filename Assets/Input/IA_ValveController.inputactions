@@ -1,0 +1,75 @@
+{
+    "version": 1,
+    "name": "IA_ValveController",
+    "maps": [
+        {
+            "name": "ValveInteraction",
+            "id": "f368e364-d2ff-4aec-8b0e-d6b306ce8fa4",
+            "actions": [
+                {
+                    "name": "Unpossess",
+                    "type": "Button",
+                    "id": "7a489cc2-742a-40d4-8476-53ec27be2919",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "MoveHandle",
+                    "type": "Button",
+                    "id": "c68af48e-7c8e-4c7b-9ece-03abf96004ba",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "ReleaseHandle",
+                    "type": "Button",
+                    "id": "9ae60274-c949-4836-9997-501d10e93696",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "d7e63270-93f6-435f-b34e-a9de2d456e89",
+                    "path": "<Keyboard>/e",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Unpossess",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6e4dd63d-b308-473a-9751-b60c9d82aa8d",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "MoveHandle",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "8a1edaef-8b8d-4620-a1e3-17b986ad9284",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "Press(behavior=1)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "ReleaseHandle",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
