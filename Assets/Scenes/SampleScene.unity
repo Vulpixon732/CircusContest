@@ -174,13 +174,42 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 402418604079633968, guid: d58e7a455f125f94096466e65a0dee13, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 182709048}
   m_SourcePrefab: {fileID: 100100000, guid: d58e7a455f125f94096466e65a0dee13, type: 3}
 --- !u!1 &182709039 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 402418604079633968, guid: d58e7a455f125f94096466e65a0dee13, type: 3}
   m_PrefabInstance: {fileID: 182709038}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &182709040 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4049879677253550398, guid: d58e7a455f125f94096466e65a0dee13, type: 3}
+  m_PrefabInstance: {fileID: 182709038}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 182709039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68c06c1f7b102d54ba87e5a1548a4931, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::S_FPC_PlayerLook
+--- !u!114 &182709048
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 182709039}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4b7f6a76529020b4e96457c69cbe791a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteractionSystem
+  look: {fileID: 182709040}
+  cam: {fileID: 1080279078}
+  playerReach: 5
 --- !u!1 &405348441
 GameObject:
   m_ObjectHideFlags: 0
@@ -833,6 +862,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!20 &1080279078 stripped
+Camera:
+  m_CorrespondingSourceObject: {fileID: 6789258572971644965, guid: d58e7a455f125f94096466e65a0dee13, type: 3}
+  m_PrefabInstance: {fileID: 182709038}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1339868761
 GameObject:
   m_ObjectHideFlags: 0
@@ -974,9 +1008,11 @@ GameObject:
   - component: {fileID: 1792396545}
   - component: {fileID: 1792396550}
   - component: {fileID: 1792396549}
+  - component: {fileID: 1792396552}
+  - component: {fileID: 1792396551}
   m_Layer: 0
   m_Name: DuckDispenser
-  m_TagString: Untagged
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1125,6 +1161,52 @@ MonoBehaviour:
   m_DefaultActionMap: ValveInteraction
   m_SplitScreenIndex: -1
   m_Camera: {fileID: 0}
+--- !u!114 &1792396551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1792396544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5fea29bb7c508c244a1f805a5fd3fc4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Outline
+  outlineMode: 0
+  outlineColor: {r: 1, g: 1, b: 1, a: 1}
+  outlineWidth: 2
+  precomputeOutline: 0
+  bakeKeys: []
+  bakeValues: []
+--- !u!114 &1792396552
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1792396544}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 507cde378c49f3e458cfe36aee4ec704, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::InteractableOutline
+  message: A
+  onInteraction:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1792396544}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &2022540771
 GameObject:
   m_ObjectHideFlags: 0
