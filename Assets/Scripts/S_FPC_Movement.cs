@@ -13,13 +13,13 @@ public class S_FPC_Movement : MonoBehaviour
     private Rigidbody rb;
     private Vector2 moveInput;
     private bool isGrounded;
-    private PlayerInput playerInput;
+    //private PlayerInput playerInput;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody>();
-        playerInput = new PlayerInput();
+        //playerInput = new PlayerInput();
     }
 
     // Update is called once per frame
