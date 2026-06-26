@@ -10,26 +10,26 @@ public class S_ValveController : MonoBehaviour
 
     public float rotationSpeed = 30f;
 
-    private bool isMouseHeld = false;
-    private Vector3 travelDistance;
+    protected bool isMouseHeld = false;
+    protected Vector3 travelDistance;
 
     [Header("Calls ControllerManager's S_ControllerManager.PossessPlayer(Player Character)\n")]
     public UnityEvent onUnpossessAction;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    protected virtual void Start()
     {
 
     }
 
     // Update is called once per frame
-    void Update()
+    protected virtual void Update()
     {
         
     }
 
-    private void FixedUpdate()
+    protected void FixedUpdate()
     {
         if (isMouseHeld)
         {
@@ -65,7 +65,7 @@ public class S_ValveController : MonoBehaviour
         }
     }
 
-    void RotationTrigger()
+    protected virtual void RotationTrigger()
     {
         travelDistance.y = travelDistance.y - 360;
         spawner.GetComponent<S_DuckSpawn>().Spawn();
