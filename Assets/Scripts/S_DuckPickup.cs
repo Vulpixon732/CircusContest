@@ -3,8 +3,11 @@ using UnityEngine.Events;
 
 public class S_DuckPickup : MonoBehaviour
 {
-    [Header("Call the [Placeholder Duck Manager]\n")]
-    public UnityEvent onCollision;
+    public delegate void onCollision(float val);
+    public static event onCollision onCollisionEvent;
+
+    private float value = 1;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -23,7 +26,7 @@ public class S_DuckPickup : MonoBehaviour
         if(collision.collider.CompareTag("Player"))
         {
             Debug.Log("DEBUG OnCollisionEnter > collider Tag == Player");
-            //onCollision.Invoke();
+            onCollisionEvent?.Invoke(value);
             Destroy(transform.gameObject);
         }
     }
