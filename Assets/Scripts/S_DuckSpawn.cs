@@ -22,11 +22,19 @@ public class S_DuckSpawn : MonoBehaviour
         
     }
 
+    float CalculateDuckValue()
+    {
+        //Future calculation modifiers
+
+        return 1;
+    }
+
     public void Spawn()
     {
         if(duckPrefab != null)
         {
             GameObject newDuck = Instantiate(duckPrefab, this.transform.position, Quaternion.identity);
+            newDuck.GetComponent<S_DuckPickup>().SetValue(CalculateDuckValue());
             newDuck.GetComponent<Rigidbody>().AddForce(new Vector3(Random.Range(forceX.x, forceX.y), Random.Range(forceY.x, forceY.y), Random.Range(forceZ.x, forceZ.y)), ForceMode.Impulse);
         }
     }

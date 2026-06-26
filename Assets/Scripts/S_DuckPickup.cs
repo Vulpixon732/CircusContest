@@ -6,7 +6,7 @@ public class S_DuckPickup : MonoBehaviour
     public delegate void onCollision(float val);
     public static event onCollision onCollisionEvent;
 
-    private float value = 1;
+    private float value = -1;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
@@ -18,6 +18,18 @@ public class S_DuckPickup : MonoBehaviour
     void Update()
     {
         
+    }
+
+    public void SetValue(float val)
+    {
+        if(val > 0)
+        {
+            value = val;
+        }
+        else
+        {
+            Debug.LogError("val argument is <= 0");
+        }
     }
 
     private void OnCollisionEnter(Collision collision)
