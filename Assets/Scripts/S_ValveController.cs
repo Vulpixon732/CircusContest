@@ -73,18 +73,18 @@ public class S_ValveController : MonoBehaviour
     
     public void OnUnpossess()
     {
-        Debug.Log("DEBUG OnUnpossess ACTION");
+        //Debug.Log("DEBUG OnUnpossess ACTION");
         onUnpossessAction.Invoke();
     }
 
     void OnMoveHandle()
     {
-        Debug.Log("DEBUG OnMoveHandle");
+        //Debug.Log("DEBUG OnMoveHandle");
         isMouseHeld = true;
     }
     void OnReleaseHandle()
     {
-        Debug.Log("DEBUG OnReleaseHandle");
+        //Debug.Log("DEBUG OnReleaseHandle");
         isMouseHeld = false;
     }
 

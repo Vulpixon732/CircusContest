@@ -15,13 +15,13 @@ public class S_HoverManager : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     public void OnPointerEnter(PointerEventData eventData)
     {
         isMouseOver = true;
-        Debug.Log("Mouse entered " + gameObject.name);
+        //Debug.Log("Mouse entered " + gameObject.name);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
         isMouseOver = false;
-        Debug.Log("Mouse exited " + gameObject.name);
+        //Debug.Log("Mouse exited " + gameObject.name);
     }
 
     public bool IsMouseOverElement()

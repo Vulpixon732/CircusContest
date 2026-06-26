@@ -671,6 +671,10 @@ PrefabInstance:
       value: UnityEngine.GameObject, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 4755389477543803212, guid: 2fc6bbab62478bf40be757d89f104434, type: 3}
+      propertyPath: rotationSpeed
+      value: 217
+      objectReference: {fileID: 0}
+    - target: {fileID: 4755389477543803212, guid: 2fc6bbab62478bf40be757d89f104434, type: 3}
       propertyPath: onUnpossessAction.m_PersistentCalls.m_Calls.Array.size
       value: 1
       objectReference: {fileID: 0}
@@ -705,6 +709,26 @@ PrefabInstance:
     - target: {fileID: 8272805879654106262, guid: 2fc6bbab62478bf40be757d89f104434, type: 3}
       propertyPath: m_Name
       value: DuckDispenser
+      objectReference: {fileID: 0}
+    - target: {fileID: 9207042514109889843, guid: 2fc6bbab62478bf40be757d89f104434, type: 3}
+      propertyPath: forceX.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9207042514109889843, guid: 2fc6bbab62478bf40be757d89f104434, type: 3}
+      propertyPath: forceX.y
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 9207042514109889843, guid: 2fc6bbab62478bf40be757d89f104434, type: 3}
+      propertyPath: forceY.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9207042514109889843, guid: 2fc6bbab62478bf40be757d89f104434, type: 3}
+      propertyPath: forceY.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 9207042514109889843, guid: 2fc6bbab62478bf40be757d89f104434, type: 3}
+      propertyPath: forceZ.x
+      value: -0.1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
